@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="TClgqNXVj8GWeGxkHvRAlz">
+<head data-page-node-id="oTH7hPGfyg8UVFDorAqOBX">
+<meta charset="UTF-8" data-page-node-id="LGi45IM4I79YNgGZUHrUvt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="6lzTIzM6nvvSmDr7Sf8HCz">
+<title>婚礼筹备清单</title>
+<style>
+  :root{
+    --bg:#FBF8F5;
+    --card:#FFFFFF;
+    --ink:#2E2A28;
+    --ink-soft:#6B625C;
+    --line:#EDE4DE;
+    --red:#B33A32;
+    --red-soft:#F6EAE7;
+    --gold:#C8A063;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",sans-serif;
+    font-size:15px;
+    line-height:1.75;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px;}
+
+  /* hero */
+  .hero{
+    background:linear-gradient(135deg,#B33A32 0%,#C2544A 55%,#C8A063 140%);
+    color:#fff;
+    padding:38px 0 30px;
+  }
+  .kicker{
+    font-size:11px;letter-spacing:.28em;opacity:.85;font-weight:600;margin-bottom:10px;
+  }
+  .hero h1{margin:0;font-size:30px;letter-spacing:.06em;font-weight:600;}
+  .hero .sub{margin:10px 0 0;font-size:14px;opacity:.92;}
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+  .pill{
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.28);
+    border-radius:999px;
+    padding:4px 13px;
+    font-size:12.5px;
+  }
+
+  /* nav */
+  nav{
+    position:sticky;top:0;z-index:10;
+    background:rgba(251,248,245,.94);
+    backdrop-filter:saturate(160%) blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;gap:4px;overflow-x:auto;padding:0 20px;}
+  nav a{
+    flex:0 0 auto;
+    padding:12px 12px;
+    color:var(--ink-soft);
+    text-decoration:none;
+    font-size:13.5px;
+    border-bottom:2px solid transparent;
+    white-space:nowrap;
+  }
+  nav a:hover{color:var(--red);}
+  nav .spacer{flex:1 1 auto;}
+  nav button{
+    flex:0 0 auto;align-self:center;
+    background:transparent;border:1px solid var(--line);
+    color:var(--ink-soft);border-radius:999px;
+    padding:5px 14px;font-size:12.5px;cursor:pointer;
+    font-family:inherit;
+  }
+  nav button:hover{border-color:var(--red);color:var(--red);}
+
+  /* sections */
+  main{padding:28px 0 60px;}
+  section{margin-bottom:34px;scroll-margin-top:56px;}
+  h2{
+    font-size:17px;margin:0 0 14px;padding-left:11px;
+    border-left:3px solid var(--red);line-height:1.3;font-weight:600;
+  }
+  h3{
+    font-size:14px;margin:20px 0 10px;color:var(--red);
+    font-weight:600;letter-spacing:.03em;
+  }
+  h3:first-child{margin-top:0;}
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:20px 22px;
+  }
+
+  /* checklist */
+  ul.check{list-style:none;margin:0;padding:0;}
+  ul.check li{
+    position:relative;padding:5px 0 5px 27px;
+    border-bottom:1px dashed #F1EAE6;
+  }
+  ul.check li:last-child{border-bottom:none;}
+  ul.check li::before{
+    content:"";position:absolute;left:2px;top:11px;
+    width:13px;height:13px;
+    border:1.5px solid #DCC3BE;border-radius:3px;
+  }
+  ul.check.sub li::before{width:9px;height:9px;top:12px;left:4px;border-radius:50%;}
+  ul.check.sub{padding-left:24px;}
+  .note{color:var(--ink-soft);font-size:13.5px;}
+  .warn{
+    background:var(--red-soft);
+    border-radius:6px;
+    padding:1px 7px;
+    color:#8E2C25;
+    font-size:13px;
+  }
+  strong{color:#8E2C25;}
+
+  /* table */
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -4px;}
+  table{border-collapse:collapse;width:100%;min-width:600px;font-size:13.5px;}
+  th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;}
+  th{
+    background:#F7F1ED;
+    font-weight:600;
+    color:#5A514B;
+    white-space:nowrap;
+  }
+  tbody tr:nth-child(even) td{background:#FDFBF9;}
+  td.t{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--red);font-weight:600;}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:22px 0 40px;
+    color:var(--ink-soft);
+    font-size:12.5px;
+    text-align:center;
+  }
+
+  @media (max-width:600px){
+    .hero{padding:30px 0 24px;}
+    .hero h1{font-size:24px;}
+    .card{padding:16px 16px;}
+    body{font-size:14.5px;}
+  }
+
+  @page{size:A4;margin:14mm 12mm;}
+  @media print{
+    nav{display:none;}
+    body{background:#fff;font-size:11pt;}
+    .hero{
+      background:#B33A32 !important;
+      -webkit-print-color-adjust:exact;print-color-adjust:exact;
+      padding:20px 0 16px;
+    }
+    .hero h1{font-size:22pt;}
+    .card{border-color:#ddd;page-break-inside:auto;}
+    .table-wrap{overflow:visible;margin:0;}
+    table{min-width:0;width:100%;font-size:9.5pt;}
+    th,td{padding:6px 8px;}
+    thead{display:table-header-group;}
+    tr{page-break-inside:avoid;}
+    h2,h3{page-break-after:avoid;}
+    ul.check li{page-break-inside:avoid;}
+    section{margin-bottom:18px;}
+    footer{padding-top:10px;}
+  }
+</style>
+</head>
+<body data-page-node-id="rlbdELF0l3BDLlvsqALuoS">
+
+<header class="hero" data-page-node-id="xFiWttbsM6qvGdD8EMDnhn">
+  <div class="wrap" data-page-node-id="OVpG7md1HaSD6pNyTiCOzU">
+    <div class="kicker" data-page-node-id="ziG6gk9xSNuNZwwXvCjBBO">WEDDING PREPARATION</div>
+    <h1 data-page-node-id="4B3UEpTX93S111bXJ4JUsM">婚礼筹备清单</h1>
+    <p class="sub" data-page-node-id="Ak6kWcr19us0teEvqQQMji">新人准备事项 · 物资采购 · 人员分工 · 当日流程</p>
+    <div class="pills" data-page-node-id="h265nUwkD1gu8v0hMqSHW0">
+      <span class="pill" data-page-node-id="ByaeBv0lMpxcYBuJCQvzIx">8:08 接亲出发</span>
+      <span class="pill" data-page-node-id="GMKoH1BmA4pfMNC1Guq4uy">11:30 仪式开始</span>
+      <span class="pill" data-page-node-id="Gyd4W0ICOhgm2A1OF84I6M">12:00 开席</span>
+      <span class="pill" data-page-node-id="CGWB65F3mmAaqxuA6Bvlv2">12:40 送客</span>
+    </div>
+  </div>
+</header>
+
+<nav data-page-node-id="Oq5wr5HZslDGgMd7gXPbap">
+  <div class="wrap" data-page-node-id="gmXczUKDiBuZcdvGmrVcMV">
+    <a href="#todo" data-page-node-id="z2RhG6tczyiudwIkFwNGIH">准备事项</a>
+    <a href="#supplies" data-page-node-id="BlGtp8QRx5lMUBfPTCHHtW">物资</a>
+    <a href="#staff" data-page-node-id="QNL1AnfV6YX2TYgytQoT9M">人员分工</a>
+    <a href="#schedule" data-page-node-id="fjm4uSM3ZIlXnEwKz7Zmjw">当日流程</a>
+    <span class="spacer" data-page-node-id="mCASB7oIw5XQQixQQoxDfV"></span>
+    <button onclick="window.print()" data-page-node-id="UmWPedvLwGMGNYOCld1Alr">打印 / 存 PDF</button>
+  </div>
+</nav>
+
+<main class="wrap" data-page-node-id="GDcsBcUdw0TQcrE8S5sd7u">
+
+  <section id="todo" data-page-node-id="VX8EqxKUeimHy2qE1hMi0a">
+    <h2 data-page-node-id="RCbLhxt5myqn0gJp67uIRC">新郎新娘准备事项</h2>
+    <div class="card" data-page-node-id="ziGvG3s3NXjzwZxG3vzE8k">
+      <ul class="check" data-page-node-id="5CQ6QDCitL9Jc69WIJXlMa">
+        <li data-page-node-id="zYoMKJ9BeMsEuXs9OzSGgg">购买结婚戒指。</li>
+        <li data-page-node-id="FwjOYDiZWmDcfcHcvN7jYJ">准备好新房床上用品（婚床套装）。</li>
+        <li data-page-node-id="OZ4ZG6JAKjfXHj9ePEfDcN">拟定请客名单，制作并送达请柬（最好婚礼前 10 天完成）。</li>
+        <li data-page-node-id="j38ADfoMnhpFX1YnRHHbSu">选定好工作人员并提前一周开筹备会，分配和落实各自的工作，具体到个人。</li>
+        <li data-page-node-id="8niCMn7TERQDyWuvH30Ywp">选定伴郎伴娘人选（服装见《婚礼前期物资准备》）。</li>
+        <li data-page-node-id="26z2PCg6wfxO2uD6uZAfYK">上亲（高宾）人数的落实，准备回礼，一般一家人一份。</li>
+        <li data-page-node-id="FX61BC8Nth0VnbvTIYPx57">如有外地来的亲人朋友，需提前一周把酒店房间联系好，要预留房间。</li>
+        <li data-page-node-id="any0wW8AG9yT2X4VkxxZLT">联系好车队（包括摄像车、花车、礼宾车、工作车、大巴车），落实司机人数。</li>
+        <li data-page-node-id="r6pjC7duk7vhUuYHlIxZhs">至少提前一个月跟酒店确定好酒席菜单。</li>
+        <li data-page-node-id="h8y96vrEoHyKZCVSASCp7q">定购好酒水，购买喜糖、喜烟及其他喜品，准备好婚礼当天的物资。</li>
+        <li data-page-node-id="c85MpzjNw80xXi2LWeD9wJ">确定好婚礼现场布置方案：一般在签定合同时就基本确定，如有改动，请至少提前一周通知婚庆公司。</li>
+        <li data-page-node-id="05bXfMntxazxQkDv8kcV0N">新娘试妆（可将婚礼当天的婚纱和礼服一起带去，穿给化妆师看；条件不允许的话，试穿时拍下照片带去给化妆师看）。</li>
+        <li data-page-node-id="D26Y6ZkjkqZC4iZ9K9SSYD">安排行车路线：提前跑一次路线，并估算好时间，定好出发时间。</li>
+        <li data-page-node-id="z7MxZyyWlL3DOnvhG3Yd1v">提前到银行兑换好打红包用的零钱新币。</li>
+        <li data-page-node-id="yVfkhJlQDpO4j5vo6CXm86">提前一天布置好新房。</li>
+        <li data-page-node-id="mIuEYD4CzLcGXrzc0xZavp">提前一天，要将酒、糖、饮料等物品送到酒店，请酒店安排好房间放好，并请酒店的服务员打好收条。烟最好在婚礼当天带去酒店，交给服务员摆放。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="supplies" data-page-node-id="CnjpF0BPj031EPhXnQCRjl">
+    <h2 data-page-node-id="qwDA5QsUIXDG1q30H1P7p6">婚礼前期物资准备</h2>
+    <div class="card" data-page-node-id="9E6LcmA4ztgM9CbEvzeHDg">
+
+      <h3 data-page-node-id="xGGoY2rqCrCiw1Xvny1pN8">服装</h3>
+      <ul class="check" data-page-node-id="V2MdiLI5p6bF8i1gKUh3lg">
+        <li data-page-node-id="g2nR9sIbKZcA9fdYznLZxH">新郎一至两套（接亲和仪式的服装最好有区别）。</li>
+        <li data-page-node-id="Ims8ywGGZ9xUFZkZc83DfK">新娘三到四套（出门纱、仪式纱、敬酒服、便服、衬裙、头纱、手套）。</li>
+        <li data-page-node-id="yXCXu2hliNrIT9mSu0ZmeD">婚鞋（新郎一般一双即可，新娘一般两双，分别为配婚纱的和配敬酒服的）。</li>
+        <li data-page-node-id="ZgPjMI4XbOKEEajHGGjCf2">父母的服装（最好相对正式）。</li>
+        <li data-page-node-id="b25PbBr6zCdK2F9r8DpHjq">伴郎伴娘礼服。</li>
+      </ul>
+
+      <h3 data-page-node-id="DAu6NMt5mxzaKjiewg8AUM">烟酒糖</h3>
+      <ul class="check" data-page-node-id="4CEvqkOhWeo1im14vmvxVn">
+        <li data-page-node-id="qA1cWNONavxGaGqwUnw7wg">白酒：每桌 1 瓶。</li>
+        <li data-page-node-id="ibCWZzeJislsBQYCrjSEGP">红酒：每桌 1 瓶。</li>
+        <li data-page-node-id="ynVGwFpg0LAHqV9yTZyh9a">啤酒：每桌 4 瓶。</li>
+        <li data-page-node-id="3idmrm0gKH9x2VVR1l3TGS">饮料：每桌 10 瓶。</li>
+        <li data-page-node-id="7zed1JyHqMLmimLxz2R3OW">槟榔：每桌 1—2 包（另需备回礼袋、司机礼品袋、签到桌用量，<span class="warn" data-page-node-id="gmD5AI5VyW1yljbak1FE00">请合并计算</span>）。</li>
+        <li data-page-node-id="uVwgOIQFYgxNr9LG9cFZLR">小盒装喜糖：每桌 10 盒，每位 1 盒。</li>
+        <li data-page-node-id="bCrgh6LErPS8PDbMiTNSSW">散糖若干（签到台、娘家、新房、随车队）。</li>
+        <li data-page-node-id="Sr2qOtqkziLMgMMvA1LWzM">烟：签到台 1 条（先拆几包用盘子装好，可由伴郎帮忙发烟，其它烟放在签到台备用）、随车队 1 条、接亲主要工作人员各 1 包（用来给客人开烟）、回礼袋每份 1 包、司机礼品袋每车 1 包（<span class="warn" data-page-node-id="npkvrU4ZSNGH8hHZIL9rah">按人数合计采购</span>）。</li>
+        <li data-page-node-id="rdXSOw9Codaiy01I3aevwY">喜烟喜糖礼包：若干（新人提前要计算并包好，用于赠送上亲、帮忙的人员、车队司机、未到席宾客、主持、摄影、摄像、化妆师等。注：提前一周用回礼袋装好）。</li>
+      </ul>
+
+      <h3 data-page-node-id="529FNAwCzvtDsfrBhtsjyG">喜品</h3>
+      <ul class="check" data-page-node-id="86GISB6YSsW6r8FttuN9BD">
+        <li data-page-node-id="U9c6YL45pB84hQ45mC3veK">喜字</li>
+        <li data-page-node-id="bbDiYrQQ0FTiRjuZ6iPb8I">门喜</li>
+        <li data-page-node-id="pYXa7PS1IGEedbOeM50Otj">窗喜</li>
+        <li data-page-node-id="bLVPcDrJqdp8PvfdeQeixw">对联</li>
+        <li data-page-node-id="E2iD46F9Ki592cEgnRTC3N">床喜</li>
+        <li data-page-node-id="BQJEXc5Hps2kkzvmGSA6cc">回礼袋（内含喜糖半斤约 20 粒左右、烟一包、槟榔一包）</li>
+        <li data-page-node-id="KYxEzWxcK5tWMcN0svnI2J">红包：接亲小红包（5 元以下）200—300 个，10 元、50 元、100 元大红包若干。</li>
+        <li data-page-node-id="Rzm4WnCaA2AfxLAskpJEfy">车喜</li>
+        <li data-page-node-id="STHzCj2iZIcVLgFC4z7ec6">车牌</li>
+        <li data-page-node-id="gcvEAsmk9DCq7IvwwoYrWI">酒店玻璃上的大喜字</li>
+        <li data-page-node-id="DHmLKFlROCCvKUZozET9jJ">鞭炮 4 挂（出发 1 挂、到新娘家 1 挂、接新娘出门 1 挂、到酒店 1 挂）</li>
+        <li data-page-node-id="2GCtEUYbSlGenXvGpFdQTI">礼花弹 4—8 个（从新娘家出发上车时、到达酒店下车时；婚礼仪式中尽量不用）</li>
+        <li data-page-node-id="xbqidVfXUo9IO6jwXUVJR0">签到本、签到笔（含座位表、桌牌；签到桌另摆一碟槟榔、一碟烟、两碟喜糖）</li>
+        <li data-page-node-id="DYOWbgQaDXHHcU1ttpUFE4">红枣、花生、桂圆、莲子（最好是带壳的，方便摆字；<strong data-page-node-id="N2c9umnFos4yPByuH7VleA">三处用途</strong>：新房床上摆字、新娘家摆放、当天早上煮甜汤给新人出门时吃）</li>
+        <li data-page-node-id="8URQjiae2klBEgcRKy08NL">结婚当天家里的摆放水果、矿泉水等（矿泉水另需备司机礼品袋用量，<span class="warn" data-page-node-id="WR3yBJcjooP8bJ28ugnGlK">请合并计算</span>）。</li>
+      </ul>
+
+      <h3 data-page-node-id="6Mc2iPe4gHmGq3DLoPqJ6z">车队</h3>
+      <ul class="check" data-page-node-id="Msh93hlJg3a0rwzJAn9PQi">
+        <li data-page-node-id="BRuRRfCIutJs9Z6GTEg22l">花车 1 台。</li>
+        <li data-page-node-id="K0LDDvH8j0FM5GfrKTKBTC">礼宾车（据人数而定，一般为 5、7、9 台）。</li>
+        <li data-page-node-id="UUxeM2hsz74yfOlBAC2fno">摄像车 1 台。</li>
+        <li data-page-node-id="LLV27CKkKsh6PUxxuJY9ES">司机礼品袋：自己请的司机放红包、烟、槟榔、喜糖、矿泉水；租的车队礼品袋内不放红包（<strong data-page-node-id="2gG1UzHwsKBsBG3ihW56R6">注</strong>：主车需一个红包）。</li>
+      </ul>
+
+      <h3 data-page-node-id="4BQu3dwDyYqPawv2Vpiptk">花</h3>
+      <ul class="check" data-page-node-id="nOxE1CV1CTQyO1jDvE7kfl">
+        <li data-page-node-id="fMBZDNATFlMGU7zvDtFeJI">捧花（新郎献花用）</li>
+        <li data-page-node-id="0Nx83Autbl7Oux3R62LyFD">胸花（新郎、双方父母，<strong data-page-node-id="gqtI1E6uiOH2H0CXfPLHI1">与父母花为两种，分开订</strong>）</li>
+        <li data-page-node-id="xWPvQjGB7w8biiSC0jIeFs">手腕花（新娘，即“手花”）</li>
+        <li data-page-node-id="Mdq9tALq1u3v9rI2XaZCal">父母花（<strong data-page-node-id="PFBCTuqAvy5xxS94sBI5Kb">与胸花分开，两样都要</strong>）</li>
+      </ul>
+
+    </div>
+  </section>
+
+  <section id="staff" data-page-node-id="9rgvp8pX9WbW7WHDsgfeoQ">
+    <h2 data-page-node-id="vBnGWJhT99ia3aEnJD576W">婚礼当日工作人员</h2>
+    <div class="card" data-page-node-id="RavvMrWjdUtO7hXFqA4Vh6">
+      <div class="table-wrap" data-page-node-id="mQkOP9AtUHJqjaGPqvC9Rz">
+        <table data-page-node-id="3SpF7ZDp4p8HtE4xH9ki4b">
+          <thead data-page-node-id="qxWHMRlgGsCJdxV0X5HaWG">
+            <tr data-page-node-id="C4Cz403HRAqCEqsNVUqeLH"><th data-page-node-id="fK97ou6spkXGpxRVjfLGk7">职责</th><th data-page-node-id="gvWjA5MLKihZZWs56dy6jQ">姓名</th><th data-page-node-id="H0L7junZHOffWllNm0oLuD">电话</th><th data-page-node-id="Av5V3WpI000JhPj5S1Bd8v">备注</th></tr>
+          </thead>
+          <tbody data-page-node-id="cBvOeX7oTB5Vha23VevLw7">
+            <tr data-page-node-id="NLWYChcOZ6SUvs6PBOMINV"><td data-page-node-id="DTX53cLWupamzfFEu6JEo7">总管、总协调<br data-page-node-id="HqCMwbyo1yoAFutqmfRj4v">（主家委派）</td><td data-page-node-id="IOQWCCOMOQ8toLaOvtATyq"></td><td data-page-node-id="x4HhCgBJEuu8rUZ2ESlRMa"></td><td data-page-node-id="swwQHejPDAMqHsMWfk425u">婚礼当天的总负责、接待上亲、席后安排和晚餐安排。</td></tr>
+            <tr data-page-node-id="BM2tySR15AwzmDZRTzrYgt"><td data-page-node-id="cPKkWzyQqGq5Q0EgvJh71L">酒店负责人<br data-page-node-id="TAo2LbsLgWjvuzeVJYHt4l">（主家委派）</td><td data-page-node-id="AEfcq7tXnuJa9U6291J246"></td><td data-page-node-id="EKaeaIsYeOEyDiNFApaoFu"></td><td data-page-node-id="atk9YIdwFvBwmnUA4DAVPZ">负责与酒店协调、加席、收席卡。</td></tr>
+            <tr data-page-node-id="jCL3ZA5eox3nCVbXgkF0GB"><td data-page-node-id="WZH3Qcne35VVVVxsSW4nMu">车队负责<br data-page-node-id="ONm4nJFa5lMwLJ5R3kBLjf">（主家委派）</td><td data-page-node-id="2Mj6FHSlKQHT1Byvj8X54U"></td><td data-page-node-id="7YW5B47DgYjGXKZ2l6RV1O"></td><td data-page-node-id="nVnTJLdxWHnkHlK8HmZcfn">负责提前跑路线，制定车队路线、时间以及接亲车辆安排；联系各迎宾车司机、扎花车等。</td></tr>
+            <tr data-page-node-id="ApugY5mgGU9hSGumyGLH93"><td data-page-node-id="RWkQOC1SZp3Cd6BIIAoqvN">花车司机<br data-page-node-id="DZGAJf2Efj21RIiNVuSANu">（主家）</td><td data-page-node-id="oyxWiR8tXa4mycdJMGoOxd"></td><td data-page-node-id="Rr9TvoEyNXb44c0Y3SOFZb"></td><td data-page-node-id="I8nQNABdrzDGLv6jEkak4F">早上准时到指定花店扎花，并负责将新娘的手捧花、手腕花、新郎胸花、父母胸花从花店带给新郎。</td></tr>
+            <tr data-page-node-id="rBUQ4HepkYkh9VcmecLeDS"><td data-page-node-id="VHykWPrxAzeZzyO2g7SSqW">摄像车司机<br data-page-node-id="lHQ43zA0NK5qDUKtDCBhED">（主家）</td><td data-page-node-id="CjBMBVz5lrv0PoNpXlVekf"></td><td data-page-node-id="aqZgQHEbHwiypZyz3DRiBX"></td><td data-page-node-id="EA5xLslOdMVRFZFQEqGj6s">在路途中专门为摄影师、摄像师开的车。</td></tr>
+            <tr data-page-node-id="iEAEMUnFhJI6WiRCCBnrmU"><td data-page-node-id="V7Tc4IBVMI0Dlj4WBskNmC">礼金台<br data-page-node-id="Pw802FAUSNKW0i57VEE5By">（主家委派）</td><td data-page-node-id="0rpTbgfWQDwp1N3OALPM4d"></td><td data-page-node-id="hpXcDxRXDFcSjwxNv2sNSw"></td><td data-page-node-id="afaJ8G4S7OUO7PdNstRKe3">2—4 位，1 位或 2 位数礼金，1 位或 2 位登礼金簿。</td></tr>
+            <tr data-page-node-id="UunF3e0xxUiN8Hwiy0asoy"><td data-page-node-id="PyVIkxqEe9plGBybzyiFzI">接亲人员<br data-page-node-id="efUHS7zeZa2nH08Q0VN0Ra">（主家委派）</td><td data-page-node-id="8aLwmWBJma9NIci794c7zv"></td><td data-page-node-id="oZkAntGmpyMw8wH2tUHlut"></td><td data-page-node-id="FpJhVVUYagbbQdItrZXgnB">包括伴郎一共 5 位左右，负责协助新郎抢亲等。注意携带红包、喜糖、进门的礼物等。</td></tr>
+            <tr data-page-node-id="SEh5cTUmSxiYeqTP7mD4mn"><td data-page-node-id="8SPnKrCl5skHtTO1PS66An">导客、安席人员<br data-page-node-id="a9SBjsdT6DMdpuJMzuQ39j">（主家委派）</td><td data-page-node-id="8d71EmEBZoPYCMVrAw5Bri"></td><td data-page-node-id="LUi07GFxr4dThffkOYc7qc"></td><td data-page-node-id="FC1IyB1nZBTDrmOLQmbQJO">三到五人，负责在酒店引领宾客入座。</td></tr>
+            <tr data-page-node-id="XALd3pU4cK3Xl0WWvlhRsc"><td data-page-node-id="QS8eGyeHUlKCp8WgZtXqjU">物资主管<br data-page-node-id="IpziPOTDQrgG2EC5BexOMs">（主家委派）</td><td data-page-node-id="pqypNJw0IvQnHoKqRX62l6"></td><td data-page-node-id="luXkRAvyHDrf8EFmmqR1Vi"></td><td data-page-node-id="arovrtHGudu5oJlQRZV2RN">烟、酒、槟榔、水、鞭炮、礼花弹、新人物品等物资管理发放及回收工作。</td></tr>
+            <tr data-page-node-id="AzSbUcoGbQD1wzBaD5UkJG"><td data-page-node-id="Z5spAvGaiNi8KvrZcC3rpq">伴娘<br data-page-node-id="XIrhH9hb6zEPc5vrKrSDJ4">（主家委派）</td><td data-page-node-id="ZMdSScwxpxKi8c5YSc4Xst"></td><td data-page-node-id="1sjBgGO2aPFOc8CifMbDtt"></td><td data-page-node-id="0UVGflp4BISUNINg9W8qsD">负责和新娘拿物品，协助新娘换衣服等。仪式当中负责相关流程的协助。</td></tr>
+            <tr data-page-node-id="MBafIrgSk8M1QU9YdeiTzJ"><td data-page-node-id="11WKd1VEvpGY0gLRNHwMzG">伴郎<br data-page-node-id="33UiGFY4Qqg3vCO7GPvQad">（主家委派）</td><td data-page-node-id="StY18iBWuz66zlDF93bKjl"></td><td data-page-node-id="yrNmV1IaGKtgcHo8xU4Enm"></td><td data-page-node-id="g7z968rRjL5oCKPfQNQuGC">负责协助新郎，帮忙敬酒。</td></tr>
+            <tr data-page-node-id="WjN7JdxnoudEfg3kWbdi2H"><td data-page-node-id="aRgdKHzder2uNY33XLO3JP">新房布置人员<br data-page-node-id="gjje0LUcXOTnyAFBS7iYto">（主家委派）</td><td data-page-node-id="RrGAxDTGkZaWDsQm910AJA"></td><td data-page-node-id="xaEmcQWpkKldvInAHMpDkC"></td><td data-page-node-id="C2FiBQ58Uw3jaFmSZVxezF">负责新房及酒店婚房的布置，并负责酒店婚房的接待。</td></tr>
+            <tr data-page-node-id="l5osK62dcjFA6HyqBumUcr"><td data-page-node-id="y0dCW9cjOCH2f9v7k14HAK">机动人员</td><td data-page-node-id="2YZpiCEjmmqNM08bSVJIM6"></td><td data-page-node-id="sxO7j0AlpHMZMrEAhMSF2w"></td><td data-page-node-id="Fmr0vK3nY6GERzJsMJa5gu">最好安排有车的工作人员作为机动。</td></tr>
+            <tr data-page-node-id="pezhflrk6dtGwNgKLMd1lg"><td data-page-node-id="dTRzrFrETNTu0gNoYe6v9w">婚庆公司负责人<br data-page-node-id="MejXwP5NiUvEGMC22dgIci">（婚庆公司指派）</td><td data-page-node-id="meDW36IMY5h9gXE8CRrzem"></td><td data-page-node-id="12LuGTZgeMilGj1pMjUC1z"></td><td data-page-node-id="si0gBfFZ4gIWOT1p5QRhW4">负责婚礼现场的布置。</td></tr>
+            <tr data-page-node-id="SrdRIg2y3gqjAMSaIgiVPr"><td data-page-node-id="4Agd9otvSFpr6OVRAgdcrW">婚庆公司督导或策划师<br data-page-node-id="7LMdGBtD3YlxAyRHcjb7Z5">（婚庆公司指派）</td><td data-page-node-id="nNuBFgpP8CjzhVXlamXRIL"></td><td data-page-node-id="ja6GGAFqlArDbxCkAjJuzU"></td><td data-page-node-id="RNjVDV0cvprJwZpga9FD8A">负责当天婚礼仪式流程。</td></tr>
+            <tr data-page-node-id="PDvbQGcrxJwPkO9RACAEf4"><td data-page-node-id="RVThsqVoMPbdUXR9FCu2hR">婚礼主持人<br data-page-node-id="iqrrj2kMSYExLjQaxv8WCk">（婚庆公司指派）</td><td data-page-node-id="uVTo6vaxcBCM2DPNg8BmT8"></td><td data-page-node-id="9naLTQ4XHLKGruaG3Lxccn"></td><td data-page-node-id="6gl6EbWIhVGvzDI77ubDN1">主持婚礼当天仪式。</td></tr>
+            <tr data-page-node-id="NhQf2MSP762tKjifTWdfA9"><td data-page-node-id="6FYRdC1iCzQrfbDDpomaJt">跟拍新郎的摄像<br data-page-node-id="4AeNxiseON02BtyPiFCaig">（婚庆公司指派）</td><td data-page-node-id="opeCEOewRJw02G7cgtEuMF"></td><td data-page-node-id="yUbAHI12mQ8VuwioqWIR3u"></td><td data-page-node-id="qSdKwzPoLsIX5ezSRUz60s">早上去新郎家（一般为新房）出发——新娘家接新——酒店迎宾——仪式过程——敬酒过程。</td></tr>
+            <tr data-page-node-id="cHG8cxTzeRIBlCzAbZwRFp"><td data-page-node-id="hMY7DFOBWFwktVYbW3L0YD">音乐 DJ<br data-page-node-id="QEvzkioXNKsP9h9wN3b2Eq">（婚庆公司指派）</td><td data-page-node-id="OpQyaUomMorbWXhOJePn9m"></td><td data-page-node-id="Lru3JXrBRenojRbXoEkj0J"></td><td data-page-node-id="jUvBJWhonxJM8BJQU2FKZe">前期音乐选择——仪式音乐执行——敬酒音乐。</td></tr>
+            <tr data-page-node-id="yVj3N3DjPAEqoGlpvGVn3b"><td data-page-node-id="dwimP08b3F1yWwmTEFGBsM">化妆师<br data-page-node-id="3icEK4Gw7ArbRKI9pH9QyB">（主家委派）</td><td data-page-node-id="0vgBW3fedwYigNZxmOFnbC"></td><td data-page-node-id="VsMWMEvj1aEZCsC2AhVDOH"></td><td data-page-node-id="xkkgzoZtvvBcKSYBcaT0ql">试妆——早妆——跟妆——敬酒妆。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="schedule" data-page-node-id="43R0Zibc6b6w7la1Rxf2gu">
+    <h2 data-page-node-id="u9F6EfIPY0a8Nkl11jwhzE">婚礼当日流程（仪式 11:30 开始）</h2>
+    <div class="card" data-page-node-id="FNOJsfLRUdPBZordCmsLRI">
+      <div class="table-wrap" data-page-node-id="p2sBTMA13r6Rk3fkTt6pzM">
+        <table data-page-node-id="xGpBDDWD9Db3k11Dt0yuXK">
+          <thead data-page-node-id="NqXRYFIOH8DNXgbEYtVzY6">
+            <tr data-page-node-id="NzqVeaG3AttP4KK4AyraR6"><th data-page-node-id="eMnb9EeW2MzGWLTrHlFXC9">时间</th><th data-page-node-id="pCSYJU60KA2wMEztGeS3Ss">事项</th><th data-page-node-id="slp9sAyK8pIrgF5xqjYZ0w">所需物资</th><th data-page-node-id="UvaDMntMCBEZAO1fOlJOcR">相关人员</th></tr>
+          </thead>
+          <tbody data-page-node-id="pp7dV06DuurnYhChDv86lr">
+            <tr data-page-node-id="CZ0r4tRr6AkLCqBB2bKfsJ"><td class="t" data-page-node-id="renT33y57aQmkIeNTMutsj">6:00-6:40</td><td data-page-node-id="Su4D4ZzSXHUBDM2K4Bkdax">开车到花店扎花车，6:40 完成</td><td data-page-node-id="jewquDSYuEBH8LBzmtD95Z">车喜、车牌、鲜花</td><td data-page-node-id="itzpMtOTwg3LZUvmY6p7TU">花车司机</td></tr>
+            <tr data-page-node-id="Pzs097zYgJyzpEvfqQnlO0"><td class="t" data-page-node-id="JwZzXhQubZ8LP76N8JzRpH">7:00</td><td data-page-node-id="YWBuwYVLSd5D6JyfJTdyJo">花车开到酒店；新郎开始准备喜烟、喜糖、红包、喜包、鞭炮</td><td data-page-node-id="B8px66UCpt2C5PxGRz0tLy">喜烟、喜糖、红包、喜包、鞭炮 4 挂</td><td data-page-node-id="BwYV1BJzjVV9H33m7ER1ek">新郎、物资主管</td></tr>
+            <tr data-page-node-id="H3hDi3NU2PlTNxTMLP8FbX"><td class="t" data-page-node-id="eP21MVeWEJaTs931GtACal">7:10</td><td data-page-node-id="dxryaEiKZZHLycn59qLRES">给伴郎放好红包，给司机发烟、糖、水</td><td data-page-node-id="QIAJQ76F46HdKUA8rIa8eS">红包、烟、喜糖、矿泉水</td><td data-page-node-id="0W99Hfzcv7bUE7nkluJZsx">新郎</td></tr>
+            <tr data-page-node-id="RQvvEhidvHrAqE6r6HhROz"><td class="t" data-page-node-id="b8wjioHnrleQEE5F42ud80">7:10-7:30</td><td data-page-node-id="WrsmXpBq9XfjHVOXd9p8E2">新郎换衣服</td><td data-page-node-id="eTZpcvCFM1gtafvY33oQal">新郎接亲服装</td><td data-page-node-id="27GN2jpjBzzQq1tPSk9SkO">新郎、伴郎</td></tr>
+            <tr data-page-node-id="L7G1ELyfXsyLKTvN3yhHTW"><td class="t" data-page-node-id="mAQdiMUwSBgg8XtkGt9viZ">7:20</td><td data-page-node-id="iYwcGqMCn924FpzfUBTD3q">所有接亲人员到位（结亲、放鞭炮、发喜糖、发红包各有人负责）</td><td data-page-node-id="EwRKtNEav3ZJLAgfnKlrPc"></td><td data-page-node-id="XY04TsSCO3aPg4vdfd0RdQ">总管</td></tr>
+            <tr data-page-node-id="2GRnI8ZGuOTAQmJqcU4EGV"><td class="t" data-page-node-id="tCWwZhM9awyR5ZtfSxtl94">7:30</td><td data-page-node-id="WWcXsVBox2iguuZDfjIweW">花车带上新娘手捧花、手腕花、新郎胸花、父母胸花，赶到新郎这边</td><td data-page-node-id="tm3AGFlzycsNOkVdEZFtl1">捧花、手腕花、胸花</td><td data-page-node-id="t53T2iXhXjqhQsawD400YV">花车司机</td></tr>
+            <tr data-page-node-id="b9gGHipdYd7ZVhWzFpCMWF"><td class="t" data-page-node-id="fjRDNHKexnKno30DAw3B9T">7:30-8:00</td><td data-page-node-id="UdXS9sGdTTp7YyHeyLslAz">摄像到新郎家，开始拍摄新房</td><td data-page-node-id="YkvMLPCWthEliIimduVlXU"></td><td data-page-node-id="0AaFNXDrnzRe3JGFcn1VUi">摄像</td></tr>
+            <tr data-page-node-id="0NCVreYGdO4ZUjYViyfIH0"><td class="t" data-page-node-id="BEMHFHie3LWNjrJmGlmx31">8:00-8:08</td><td data-page-node-id="NUtSeKuY7kdp8dOEGbSb4o">车队、花车与摄像车到新郎家排好队伍，贴车喜、车牌，给司机发喜包和水</td><td data-page-node-id="AlVJld9Ln9ZP1YJgkgQHEe">车喜、车牌、喜包、矿泉水</td><td data-page-node-id="EuhdsvrIxLfnBaM1BPIh5E">车队负责人</td></tr>
+            <tr data-page-node-id="RNuxWT4J78pOvTxl3YPrmi"><td class="t" data-page-node-id="u8IWYbVJuQ3HLvcWA7mCu7">8:08</td><td data-page-node-id="aXLBftoZWVAQSUwD7A4Cmz">新郎接亲队放鞭炮出发，前往新娘家</td><td data-page-node-id="0WaFCQFOIaKESHqo7tD0Al">鞭炮 1 挂</td><td data-page-node-id="FwMcs882hqfbuS5P5FIzJy">全体接亲人员</td></tr>
+            <tr data-page-node-id="J9KtsOYEIYkHKvVFN2tFQv"><td class="t" data-page-node-id="jXa3WOS7kDaGpBnQRG24VP">8:08-8:28</td><td data-page-node-id="72tyXJa7Sfp9M6fYHN0aWY">车程，8:28 到达新娘家，放一挂鞭炮</td><td data-page-node-id="M9Dr08xGwawavCGaGGd6d9">鞭炮 1 挂</td><td data-page-node-id="aBqv4nPIJZqEb0FYXvEQkP">礼炮手</td></tr>
+            <tr data-page-node-id="Y2n9FoDGFOKaX0FxADuxAX"><td class="t" data-page-node-id="UAUDbQb4EazKqHDJns3Kwb">8:28-8:58</td><td data-page-node-id="B3zCcGyC83Vgb43AiWsMK6">拦门抢亲：新郎给伴娘、伴郎发红包；新郎求婚、单膝下跪献捧花、戴手腕花、互相戴胸花、给新娘找鞋子</td><td data-page-node-id="gKBKY2QMopuGTUuCgp8h42">红包、捧花、手腕花、胸花、新鞋</td><td data-page-node-id="4vGB7aFeyzlS3sI7hLLcgX">伴郎伴娘、摄像</td></tr>
+            <tr data-page-node-id="4K9nMcDIsLSY9McV0bQOJp"><td class="t" data-page-node-id="EG11rKDBtZIB06sd5bMnXK">8:58-9:10</td><td data-page-node-id="mKfk0hMHMt01Z9P1bp2PO1">告祖</td><td data-page-node-id="Vm3qRGOABlEOAf1qsnRXnQ"></td><td data-page-node-id="ukUmIFEgXx3ikMsr4pyGih">新娘家人</td></tr>
+            <tr data-page-node-id="RS2aK8P8zy7wPhFNJaZedb"><td class="t" data-page-node-id="LDCjX7yEDnRWsTztR3FGbp">9:10-9:18</td><td data-page-node-id="BsrxNTL8n4dVHHmAll9nMQ">拜见新娘父母：敬茶、父母回赠红包；岳母端甜汤（莲子桂圆汤）给新人喝</td><td data-page-node-id="zGRhBiGNrUZgk6NXZ6sRL8">茶水、红包、莲子桂圆汤</td><td data-page-node-id="ebonm89dCAJCQf9xMIZZqv">新娘父母</td></tr>
+            <tr data-page-node-id="J8nMEriIGYq92qTqd8OJMA"><td class="t" data-page-node-id="SQ44cRPvmChGxINHNXo0KT">9:18</td><td data-page-node-id="G6h0ObbdWOFGWs9rL0nwx5">与上亲照全家福；新郎抱新娘出门，放一挂鞭炮，安排上亲上车</td><td data-page-node-id="nvjZXZ24X5sxR9GLSyqQO4">鞭炮 1 挂</td><td data-page-node-id="hnAwKuffqyyS3m4sNk1dPo">全体</td></tr>
+            <tr data-page-node-id="jVk5hmwuQXpr8qGZKDTDkY"><td class="t" data-page-node-id="VbfEKvvIowJFHGfmvQUVSa">9:20</td><td data-page-node-id="ltBP0pTbD3LXV2ZFBVAtTZ">车队向酒店出发</td><td data-page-node-id="jPheBDuLhvovEpr88RnQQT"></td><td data-page-node-id="GhuEUeaiaU816HQZ3fVBOT">车队负责人</td></tr>
+            <tr data-page-node-id="E1rVLf07stxPzhmB7OACwL"><td class="t" data-page-node-id="GCI2P0auatWhQsK4fleGU1">9:30-10:00</td><td data-page-node-id="PLoWTqFXpsR4pEKSbAZcc9">不参加接亲的人先到酒店：布置餐桌上的喜糖、喜烟、喜酒；布置签到桌（签到簿、签到笔、一碟槟榔、一碟烟、两碟喜糖、座位表、桌牌）；安排人在酒店门口接车队并放鞭炮</td><td data-page-node-id="iYmNkCt6i9ha7f9979jXBa">喜糖、喜烟、喜酒、签到簿、签到笔、座位表、桌牌</td><td data-page-node-id="uLAmY9Yd3GvCogTfQHwepT">酒店负责人、导客人员</td></tr>
+            <tr data-page-node-id="2YGD5xDXERvmiOTksAkMtI"><td class="t" data-page-node-id="2hp4R8jAvjyFRrIx1IuHKH">9:48</td><td data-page-node-id="4AjnFy25BVRwOS7NU2awNY">车队到酒店，酒店门口打礼花弹、放鞭炮，新人进化妆室整理容装</td><td data-page-node-id="4YPAAhxhsyd2ZY7bY3B1yc">礼花弹、鞭炮 1 挂</td><td data-page-node-id="ZnRwkuVxQ6Y1WGo2QEjUAv">礼炮手</td></tr>
+            <tr data-page-node-id="40gBIOyvy5bCtcB207kFG8"><td class="t" data-page-node-id="TVDFI24hS0DJDZLweSUrOz">10:00-10:30</td><td data-page-node-id="oTJUA3tfh7msCMdX0zQAhM">到房间换仪式服装、喝茶</td><td data-page-node-id="M8Hsugi3nCbpKY4ep6IlQb">仪式服装、茶水</td><td data-page-node-id="L1hbX2XHJgepcyl7Pmyiuz">跟妆师、伴娘</td></tr>
+            <tr data-page-node-id="EPC57sEICWORv9NoiLEfJd"><td class="t" data-page-node-id="2OChqyVBBNpnUhmuRThHi5">10:30-11:20</td><td data-page-node-id="8ydhtS41KztBUIuOEB2Bhf">新人出房间，在宴会厅门口迎宾、与宾客拍照；高宾到二楼喝茶</td><td data-page-node-id="UZyb7Vg6AbJdOwxT7AcRzt">签到簿、座位表、桌牌</td><td data-page-node-id="Ql9ts5i2sUbmwzR0seSMX7">礼金台、迎宾人员</td></tr>
+            <tr data-page-node-id="9HMPgl30WIRJoIDocyDHQ9"><td class="t" data-page-node-id="sao6VAhzAv1gTX3v3WsASX">11:20-11:30</td><td data-page-node-id="nJzGYVHTvbkrpuEVyhNu19">仪式准备就绪，新人在督导指引下到鲜花亭中就位</td><td data-page-node-id="sG2kQHgb7pepAHxrwv01Gx">鲜花、花瓣或彩带</td><td data-page-node-id="yTb7TzGVL0dLm4zMr6IISb">主持人、督导</td></tr>
+            <tr data-page-node-id="j3cvu7IGNs0FQEYYQmbE6k"><td class="t" data-page-node-id="ZTgMrft0hZ3H566Vi4tdJ2">11:30-11:38</td><td data-page-node-id="84GZHUuaHfOwsPyQqYrxsK">仪式开场，开场音乐，主持人开场词</td><td data-page-node-id="I7OsRFVDe0EKBMEbzZF0Mt"></td><td data-page-node-id="lFOb9rvwOlqFkYsrHH18vr">主持人</td></tr>
+            <tr data-page-node-id="rQBItRhitT3waE1KzQc7qN"><td class="t" data-page-node-id="ce195et47hrhzZSwAUAndV">11:38-11:40</td><td data-page-node-id="WI6xPvThlnsQEoWbYayaYv">新郎出场</td><td data-page-node-id="Do7G7f9BbAZSN7jpaYQgNp"></td><td data-page-node-id="rb0gvpjCS2I6h8QNjw50wq">新郎</td></tr>
+            <tr data-page-node-id="bvcmBAWFrbyHMplEteclbR"><td class="t" data-page-node-id="fJHv2yFpsLQ1jAvolLv7MV">11:40-11:43</td><td data-page-node-id="CZYHmFjPuKRe2HKbpzRc3u">新娘出场（由父亲或新郎带入现场）</td><td data-page-node-id="1ePUSLuCNPwDGvx4ihIwoK">《婚礼进行曲》</td><td data-page-node-id="hs0B7lXtxhMT0CY99Ry0Dx">新娘、父亲</td></tr>
+            <tr data-page-node-id="BOKxiGeERKxtz2xeHSD1rD"><td class="t" data-page-node-id="RUovuXguxKudtsdqdibZMR">11:43-11:45</td><td data-page-node-id="9GalGMeyPdZVtmV2CujIcJ">新人交接仪式</td><td data-page-node-id="zSfWbtCrQExEux9etsADYL"></td><td data-page-node-id="nGNG8x9T6gSmrDaCfVyl8j"></td></tr>
+            <tr data-page-node-id="7NZDre1qnL7LNnX8wgjCDM"><td class="t" data-page-node-id="sMN4cWCLXCjwLUBxpRMbD2">11:45-11:46</td><td data-page-node-id="WFYAPZU8BMnpPF97ICKjHB">新人登台</td><td data-page-node-id="AkGxKbmv073dA4JqUjpvfx"></td><td data-page-node-id="5kq9Y0venyMLazlCK68Bv4"></td></tr>
+            <tr data-page-node-id="1NY3gExWbNZlAbzbDrzBFE"><td class="t" data-page-node-id="Q6ulFje2bVIZUQXG6MEQb8">11:46-11:51</td><td data-page-node-id="KcJTLm70agBT8aHtwhbU1B">新人宣誓、交换戒指、拥吻</td><td data-page-node-id="vYDCnEusPWjiF53LEEoVrj">结婚戒指</td><td data-page-node-id="84TRZHtpjze005O4MvhZLN">新人</td></tr>
+            <tr data-page-node-id="wFdWoDtS4GqmCisVgtJkva"><td class="t" data-page-node-id="os0urwAHE9ogE7tmH2kR3A">11:51-11:55</td><td data-page-node-id="LnOwhIBQTr8d6G1tCb6xV3">感恩父母（父母上台），新人致答谢辞、献花或赠送礼物</td><td data-page-node-id="eA5qVgItvOQ9SS5c2SfE0v">答谢辞、发言稿、鲜花或礼物</td><td data-page-node-id="eUYKkWNaGSBjjueWkGRxL0">双方父母</td></tr>
+            <tr data-page-node-id="5ojZRowoLWzfeyIOk5L2EX"><td class="t" data-page-node-id="OaKGbMnsazMsH4bcCvNVqw">11:55-11:57</td><td data-page-node-id="WNoI87nG9262F3YvsUx6zv">交杯酒</td><td data-page-node-id="5O2OujczQGkP37uP9PZZ3M">交杯酒</td><td data-page-node-id="VD0U1gicnDbc1fJYpl1M4d">新人</td></tr>
+            <tr data-page-node-id="FdrhGQjiY5Kfx6bbiu5vip"><td class="t" data-page-node-id="hNxoRbhAOXBVnH0GaoRYAv">11:57-11:59</td><td data-page-node-id="u71iIAU1QTAFJeVDZW386z">仪式礼成，新人退场</td><td data-page-node-id="1aiiwjvnhzVO4anLLUEyHo"></td><td data-page-node-id="Dr9qbEBiUmbOvvW3PryCog"></td></tr>
+            <tr data-page-node-id="cxu8jwhL15MWkNNBUzbWGE"><td class="t" data-page-node-id="k5ugbLRwWcH7GHqZQK6ySs">12:00</td><td data-page-node-id="5QUTeRruJy6uGHDvluKvAD">开席，主持人宣布婚宴正式开始；新人换敬酒服</td><td data-page-node-id="EHoxOruCsy3yDFhFJ8URyt">敬酒服</td><td data-page-node-id="bYA59b2Za7wG0pB9T0xKcw">主持人、伴娘</td></tr>
+            <tr data-page-node-id="c7pQIEijShfZjCVgU3nReE"><td class="t" data-page-node-id="2eBG7R7yMKldziVM92U01e">12:05-12:40</td><td data-page-node-id="TQ5ICXYB7K8wJwY9NKVoWT">新人逐桌敬酒（利用间隙吃点心填肚子）</td><td data-page-node-id="k0W2128vyfsR3aY7ikGwUk"></td><td data-page-node-id="124kMgoyiKhAqSCHFjIfsF">伴郎伴娘</td></tr>
+            <tr data-page-node-id="OuXgsDKhoCpz2ei94kAbbU"><td class="t" data-page-node-id="PyNTeDbnhqLVuQ7dwB7DnE">12:40-13:00</td><td data-page-node-id="4iGH6XAADoSDz3g9nEbDxw">新人送客</td><td data-page-node-id="HoMAwDbyvVxAhOgbi8jsV3"></td><td data-page-node-id="68YpAwEtCDGNSP5vESg2gD">新人</td></tr>
+            <tr data-page-node-id="U9xgbidHaqErWjLlET9YhU"><td class="t" data-page-node-id="4XZXMinxfK3H0v4C2D6SHQ">13:00</td><td data-page-node-id="pIRvGNgaPoXfmFozCt0R5C">通知酒店晚餐准备数量</td><td data-page-node-id="FGhfIQT5mx86yHepTfDkGD"></td><td data-page-node-id="Kh5vkhCyw3dT3R9ppG04Ck">总管</td></tr>
+            <tr data-page-node-id="xm5Mc8oASu3WCNoDBQK4Sc"><td class="t" data-page-node-id="S5GrxzNz3n03NEtprwD197">离开前</td><td data-page-node-id="HQraCX6lhwb9ZOiykt2zOd">清点所有物品</td><td data-page-node-id="1AZNb0HKGcokgOaPhqOqsd"></td><td data-page-node-id="rV3eXNLKpbT4lSJneellbM">物资主管</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="note" style="margin-top:12px;" data-page-node-id="xW8zgrBgiP4HND9hsJ4IoQ">
+      注：建议新人在迎亲前一周内确定好接亲路线，确定路线以后自行驾车走完全程，算好走完全程的时间来确定婚礼当天什么时候出发迎亲。
+    </p>
+  </section>
+
+</main>
+
+<footer data-page-node-id="GpnxrwCsJb9cRNhg6lvsrf">
+  婚礼筹备清单 · 对外版
+</footer>
+
+</body>
+</html>
